@@ -1,0 +1,75 @@
+﻿@model List<RaceDay.MVC.Models.MyEnrolmentViewModel>
+
+@{
+    ViewData["Title"] = "My Enrolments";
+}
+
+<h2>My Enrolments</h2>
+
+<p>View all the RaceDay events you have entered.</p>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+
+@if (Model.Any())
+{
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Event</th>
+                <th>Category</th>
+                <th>Distance</th>
+                <th>Event Date</th>
+                <th>Location</th>
+                <th>Payment Status</th>
+                <th>Registration Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var enrolment in Model)
+            {
+                <tr>
+                    <td>@enrolment.EventName</td>
+                    <td>@enrolment.CategoryName</td>
+                    <td>@enrolment.Distance km</td>
+                    <td>@enrolment.EventDate.ToString("dd MMM yyyy")</td>
+                    <td>@enrolment.EventLocation</td>
+
+                    <td>
+                        @if (enrolment.PaymentStatus == "Paid")
+                        {
+                            <span class="badge bg-success">Paid</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-warning text-dark">
+                                @enrolment.PaymentStatus
+                            </span>
+                        }
+                    </td>
+
+                    <td>
+                        @enrolment.RegistrationDate.ToString("dd MMM yyyy")
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        You have not enrolled in any events yet.
+    </div>
+
+    <a asp-controller="Events"
+       asp-action="Index"
+       class="btn btn-primary">
+        Browse Events
+    </a>
+}

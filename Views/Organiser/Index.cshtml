@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "Organiser Dashboard";
+}
+
+<div class="container mt-4">
+
+    <div class="p-4 mb-4 bg-dark text-white rounded">
+        <h1>RaceDay Organiser Dashboard</h1>
+        <p>Manage your sporting events and participants.</p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h5>My Events</h5>
+                    <p>Create, update and manage your events.</p>
+                    <a asp-controller="Events"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        Manage Events
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h5>Categories</h5>
+                    <p>Manage race categories and distances.</p>
+                    <a asp-controller="Events"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        View Events
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h5>Enrolments</h5>
+                    <p>View participants registered for your events.</p>
+                    <a asp-controller="Enrolments"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        View Enrolments
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h5>Race Results</h5>
+                    <p>Capture finishing times and positions.</p>
+                    <a asp-controller="Results"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        Manage Results
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <form asp-controller="Account"
+          asp-action="Logout"
+          method="post"
+          class="mt-4">
+        <button type="submit" class="btn btn-outline-danger">
+            Logout
+        </button>
+    </form>
+
+</div>

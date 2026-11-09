@@ -1,0 +1,97 @@
+﻿@model RaceDay.MVC.Models.EventViewModel
+
+@{
+    ViewData["Title"] = "Create Event";
+}
+
+<div class="container mt-4" style="max-width: 700px;">
+
+    <div class="card shadow p-4">
+
+        <h2>Create a RaceDay Event</h2>
+
+        <p class="text-muted">
+            Enter the details of your sporting event.
+        </p>
+
+        <form asp-action="Create" method="post">
+
+            <div asp-validation-summary="All"
+                 class="text-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label">
+                    Event Name
+                </label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Description"
+                       class="form-label"></label>
+                <textarea asp-for="Description"
+                          class="form-control"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Location"
+                       class="form-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="EventDate"
+                       class="form-label"></label>
+                <input asp-for="EventDate"
+                       type="datetime-local"
+                       class="form-control" />
+                <span asp-validation-for="EventDate"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="EventType"
+                       class="form-label"></label>
+
+                <select asp-for="EventType" class="form-select">
+                    <option value="Run">Running</option>
+                    <option value="Walk">Walking</option>
+                    <option value="Cycle">Cycling</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="RouteDetails"
+                       class="form-label"></label>
+                <textarea asp-for="RouteDetails"
+                          class="form-control"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="WeatherInfo"
+                       class="form-label"></label>
+                <input asp-for="WeatherInfo"
+                       class="form-control" />
+            </div>
+
+            <button type="submit" class="btn btn-success">
+                Create Event
+            </button>
+
+            <a asp-action="Index"
+               class="btn btn-secondary">
+                Cancel
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

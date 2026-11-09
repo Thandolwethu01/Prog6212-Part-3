@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "Participant Dashboard";
+}
+
+<div class="container mt-4">
+
+    <div class="p-4 mb-4 bg-primary text-white rounded">
+        <h1>Welcome to RaceDay!</h1>
+        <p>Find events, manage your enrolments and view your race results.</p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h5>Upcoming Events</h5>
+                    <p>Browse available running, walking and cycling events.</p>
+                    <a asp-controller="Events"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        Browse Events
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h5>My Enrolments</h5>
+                    <p>Check the events and categories you have entered.</p>
+                    <a asp-controller="Enrolments"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        My Enrolments
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h5>My Results</h5>
+                    <p>View your finishing times and race positions.</p>
+                    <a asp-controller="Results"
+                       asp-action="MyResults"
+                       class="btn btn-primary">
+                        View Results
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow h-100">
+                <div class="card-body">
+                    <h5>My Profile</h5>
+                    <p>View and update your personal information.</p>
+                    <a asp-controller="Profile"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        Manage Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <form asp-controller="Account"
+          asp-action="Logout"
+          method="post"
+          class="mt-4">
+        <button type="submit" class="btn btn-outline-danger">
+            Logout
+        </button>
+    </form>
+
+</div>

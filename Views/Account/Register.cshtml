@@ -1,0 +1,89 @@
+﻿@model RaceDay.MVC.Models.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container mt-5" style="max-width: 550px;">
+    <div class="card shadow p-4">
+        <h2 class="text-center mb-4">Join RaceDay</h2>
+
+        <form asp-action="Register" method="post">
+
+            <div asp-validation-summary="All"
+                 class="text-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Role" class="form-label">
+                    Account Type
+                </label>
+
+                <select asp-for="Role" class="form-select">
+                    <option value="Participant">Participant</option>
+                    <option value="Organiser">Organiser</option>
+                </select>
+            </div>
+
+            <hr />
+
+            <h5>Participant details</h5>
+
+            <div class="mb-3">
+                <label asp-for="FirstName" class="form-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="LastName" class="form-label"></label>
+                <input asp-for="LastName" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Gender" class="form-label"></label>
+                <input asp-for="Gender" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="DateOfBirth" class="form-label"></label>
+                <input asp-for="DateOfBirth"
+                       type="date" class="form-control" />
+            </div>
+
+            <hr />
+
+            <h5>Organiser details</h5>
+
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="OrganizationName"
+                       class="form-label"></label>
+                <input asp-for="OrganizationName"
+                       class="form-control" />
+            </div>
+
+            <button type="submit"
+                    class="btn btn-primary w-100">
+                Create Account
+            </button>
+        </form>
+
+        <p class="text-center mt-3">
+            Already registered?
+            <a asp-action="Login">Login here</a>
+        </p>
+    </div>
+</div>
